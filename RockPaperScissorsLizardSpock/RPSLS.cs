@@ -11,8 +11,6 @@ namespace RockPaperScissorsLizardSpock
         
         private void btnRock_Click(object sender, EventArgs e)
         {
-            var userName = "Greg's Bird";
-
             int computerChoice = computer.Next(1,5);
             lblDraw.Visible = false;
             lblWin.Visible = false;

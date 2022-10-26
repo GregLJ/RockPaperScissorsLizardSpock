@@ -10,12 +10,7 @@ namespace RockPaperScissorsLizardSpock
         Random computer = new Random();
         
         private void btnRock_Click(object sender, EventArgs e)
-        {
-
-            var userName = "Greg's Bird";
-            var userName2 = "My Dead Dog";
-            var userName3 = "Odin's Raven";
-            
+        {            
             int computerChoice = computer.Next(1,5);
             lblDraw.Visible = false;
             lblWin.Visible = false;

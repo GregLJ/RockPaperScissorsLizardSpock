@@ -14,7 +14,6 @@ namespace RockPaperScissorsLizardSpock
             var userName = "Greg";
 
             int computerChoice = computer.Next(1,5);
-            int userInput = 1;
             lblDraw.Visible = false;
             lblWin.Visible = false;
             lblLose.Visible = false;

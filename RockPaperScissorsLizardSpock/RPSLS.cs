@@ -211,9 +211,9 @@ namespace RockPaperScissorsLizardSpock
             }
         }
 
-        private void lblWin_Click(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-
+            lblWin.Visible = false ;
         }
 
         //private void ScoreKeeping()

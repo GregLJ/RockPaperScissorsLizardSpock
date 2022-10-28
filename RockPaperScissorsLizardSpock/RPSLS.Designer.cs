@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblPlayerScoreCount = new System.Windows.Forms.Label();
             this.lblComputerScoreCount = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRock
@@ -118,7 +119,6 @@
             this.lblWin.Text = "Rock Crushes Lizard You Win!";
             this.lblWin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblWin.Visible = false;
-            this.lblWin.Click += new System.EventHandler(this.lblWin_Click);
             // 
             // label2
             // 
@@ -160,6 +160,17 @@
             this.lblComputerScoreCount.Text = "0";
             this.lblComputerScoreCount.Visible = false;
             // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(21, 43);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 11;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // RPSLS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -167,6 +178,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(752, 450);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblComputerScoreCount);
             this.Controls.Add(this.lblPlayerScoreCount);
             this.Controls.Add(this.label3);
@@ -200,5 +212,6 @@
         private Label label3;
         private Label lblPlayerScoreCount;
         private Label lblComputerScoreCount;
+        private Button btnReset;
     }
 }

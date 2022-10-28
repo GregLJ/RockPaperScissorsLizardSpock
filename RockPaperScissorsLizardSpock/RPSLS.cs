@@ -6,6 +6,9 @@ namespace RockPaperScissorsLizardSpock
     public partial class RPSLS : Form
     {
         Random computer = new Random();
+        int playerScore = 0;
+        int computerScore = 0;
+       
         public RPSLS()
         {
             InitializeComponent();
@@ -45,6 +48,10 @@ namespace RockPaperScissorsLizardSpock
         private void btnReset_Click(object sender, EventArgs e)
         {
             lblWin.Visible = false ;
+            playerScore = 0;
+            computerScore = 0;
+            lblPlayerScoreCount.ResetText();
+            lblComputerScoreCount.ResetText();
         }
 
         //private void ScoreKeeping()
@@ -54,12 +61,11 @@ namespace RockPaperScissorsLizardSpock
         
         public void WinConditions(HandSign handSign)
         {
-            HandSign computerChoice = (HandSign)computer.Next(0,5);
-            lblWin.Visible=false;
-            int computerScore = 0;
-            int playerScore = 0;
-            lblPlayerScoreCount.Visible=true;
-            lblComputerScoreCount.Visible=true;
+            HandSign computerChoice = (HandSign)computer.Next(0, 5);
+            lblWin.Visible = false;
+            lblPlayerScoreCount.Visible = true;
+            lblComputerScoreCount.Visible = true;
+
 
             if (handSign == HandSign.Rock)
             {
@@ -73,26 +79,32 @@ namespace RockPaperScissorsLizardSpock
                     //Paper
                     case HandSign.Paper:
                         lblWin.Text = "Paper Covers Rock, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     //Scissor
                     case HandSign.Scissors:
                         lblWin.Text = "Rock Crushes Scissors, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                     //Lizard
                     case HandSign.Lizard:
                         lblWin.Text = "Rock Crushes Lizard, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                     //Spock
                     case HandSign.Spock:
                         lblWin.Text = "Spock Vaporizes Rock, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     default:
                         break;
                 }
+                lblComputerScoreCount.Text = computerScore.ToString();
+                lblPlayerScoreCount.Text = playerScore.ToString();
             }
 
             if (handSign == HandSign.Paper)
@@ -102,6 +114,7 @@ namespace RockPaperScissorsLizardSpock
                     //Rock
                     case HandSign.Rock:
                         lblWin.Text = "Paper Covers Rock, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                     //Paper
@@ -112,19 +125,24 @@ namespace RockPaperScissorsLizardSpock
                     //Scissor
                     case HandSign.Scissors:
                         lblWin.Text = "Scissors cut paper, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     //Lizard
                     case HandSign.Lizard:
                         lblWin.Text = "Lizard eats paper, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     //Spock
                     case HandSign.Spock:
                         lblWin.Text = "Paper disproves Spock, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                 }
+                lblComputerScoreCount.Text = computerScore.ToString();
+                lblPlayerScoreCount.Text = playerScore.ToString();
             }
 
             if (handSign == HandSign.Scissors)
@@ -134,11 +152,13 @@ namespace RockPaperScissorsLizardSpock
                     //Rock
                     case HandSign.Rock:
                         lblWin.Text = "Rock crushes scissors, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     //Paper
                     case HandSign.Paper:
                         lblWin.Text = "Scissors cut paper, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                     //Scissor
@@ -149,16 +169,20 @@ namespace RockPaperScissorsLizardSpock
                     //Lizard
                     case HandSign.Lizard:
                         lblWin.Text = "Scissors decapitate lizard, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                     //Spock
                     case HandSign.Spock:
                         lblWin.Text = "Spock smashes Scissors, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     default:
                         break;
                 }
+                lblComputerScoreCount.Text = computerScore.ToString();
+                lblPlayerScoreCount.Text = playerScore.ToString();
             }
 
             if (handSign == HandSign.Lizard)
@@ -168,16 +192,19 @@ namespace RockPaperScissorsLizardSpock
                     //Rock
                     case HandSign.Rock:
                         lblWin.Text = "Rock smashes lizard, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     //Paper
                     case HandSign.Paper:
                         lblWin.Text = "Lizard eats paper, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                     //Scissor
                     case HandSign.Scissors:
                         lblWin.Text = "Scissors decapitate lizard, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     //Lizard
@@ -188,10 +215,12 @@ namespace RockPaperScissorsLizardSpock
                     //Spock
                     case HandSign.Spock:
                         lblWin.Text = "Lizard poisons Spock, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
-
                 }
+                lblComputerScoreCount.Text = computerScore.ToString();
+                lblPlayerScoreCount.Text = playerScore.ToString();
             }
 
             if (handSign == HandSign.Spock)
@@ -201,21 +230,25 @@ namespace RockPaperScissorsLizardSpock
                     //Rock
                     case HandSign.Rock:
                         lblWin.Text = "Spock Vaporizes rock, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                     //Paper
                     case HandSign.Paper:
                         lblWin.Text = "Paper disproves Spock, You Lose!";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     //Scissor
                     case HandSign.Scissors:
                         lblWin.Text = "Spock smashes scissors, You Win!";
+                        ++playerScore;
                         lblWin.Visible = true;
                         break;
                     //Lizard
                     case HandSign.Lizard:
                         lblWin.Text = "Lizard poisons Spock, You Lose";
+                        ++computerScore;
                         lblWin.Visible = true;
                         break;
                     //Spock
@@ -224,8 +257,9 @@ namespace RockPaperScissorsLizardSpock
                         lblWin.Visible = true;
                         break;
                 }
+                lblComputerScoreCount.Text = computerScore.ToString();
+                lblPlayerScoreCount.Text = playerScore.ToString();
             }
         }
-
     }
 }

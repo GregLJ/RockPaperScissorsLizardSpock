@@ -36,8 +36,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.lblWin = new System.Windows.Forms.Label();
-            this.lblLose = new System.Windows.Forms.Label();
-            this.lblDraw = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPlayerScoreCount = new System.Windows.Forms.Label();
+            this.lblComputerScoreCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRock
@@ -109,36 +111,54 @@
             // 
             this.lblWin.AutoSize = true;
             this.lblWin.Font = new System.Drawing.Font("Elephant", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblWin.Location = new System.Drawing.Point(234, 305);
+            this.lblWin.Location = new System.Drawing.Point(73, 310);
             this.lblWin.Name = "lblWin";
-            this.lblWin.Size = new System.Drawing.Size(232, 47);
+            this.lblWin.Size = new System.Drawing.Size(598, 47);
             this.lblWin.TabIndex = 6;
-            this.lblWin.Text = "YOU WIN!";
+            this.lblWin.Text = "Rock Crushes Lizard You Win!";
+            this.lblWin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblWin.Visible = false;
             this.lblWin.Click += new System.EventHandler(this.lblWin_Click);
             // 
-            // lblLose
+            // label2
             // 
-            this.lblLose.AutoSize = true;
-            this.lblLose.Font = new System.Drawing.Font("Elephant", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLose.Location = new System.Drawing.Point(234, 305);
-            this.lblLose.Name = "lblLose";
-            this.lblLose.Size = new System.Drawing.Size(257, 47);
-            this.lblLose.TabIndex = 7;
-            this.lblLose.Text = "YOU LOSE!";
-            this.lblLose.Visible = false;
-            this.lblLose.Click += new System.EventHandler(this.lblLose_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(505, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Player Score:";
+            this.label2.Visible = false;
             // 
-            // lblDraw
+            // label3
             // 
-            this.lblDraw.AutoSize = true;
-            this.lblDraw.Font = new System.Drawing.Font("Elephant", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDraw.Location = new System.Drawing.Point(267, 305);
-            this.lblDraw.Name = "lblDraw";
-            this.lblDraw.Size = new System.Drawing.Size(173, 47);
-            this.lblDraw.TabIndex = 8;
-            this.lblDraw.Text = "DRAW!";
-            this.lblDraw.Visible = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(480, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 15);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Computer  Score:";
+            this.label3.Visible = false;
+            // 
+            // lblPlayerScoreCount
+            // 
+            this.lblPlayerScoreCount.AutoSize = true;
+            this.lblPlayerScoreCount.Location = new System.Drawing.Point(585, 88);
+            this.lblPlayerScoreCount.Name = "lblPlayerScoreCount";
+            this.lblPlayerScoreCount.Size = new System.Drawing.Size(13, 15);
+            this.lblPlayerScoreCount.TabIndex = 9;
+            this.lblPlayerScoreCount.Text = "0";
+            this.lblPlayerScoreCount.Visible = false;
+            // 
+            // lblComputerScoreCount
+            // 
+            this.lblComputerScoreCount.AutoSize = true;
+            this.lblComputerScoreCount.Location = new System.Drawing.Point(585, 120);
+            this.lblComputerScoreCount.Name = "lblComputerScoreCount";
+            this.lblComputerScoreCount.Size = new System.Drawing.Size(13, 15);
+            this.lblComputerScoreCount.TabIndex = 10;
+            this.lblComputerScoreCount.Text = "0";
+            this.lblComputerScoreCount.Visible = false;
             // 
             // RPSLS
             // 
@@ -147,8 +167,10 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(752, 450);
-            this.Controls.Add(this.lblDraw);
-            this.Controls.Add(this.lblLose);
+            this.Controls.Add(this.lblComputerScoreCount);
+            this.Controls.Add(this.lblPlayerScoreCount);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblWin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSpock);
@@ -174,7 +196,9 @@
         private Label label1;
         private PrintDialog printDialog1;
         private Label lblWin;
-        private Label lblLose;
-        private Label lblDraw;
+        private Label label2;
+        private Label label3;
+        private Label lblPlayerScoreCount;
+        private Label lblComputerScoreCount;
     }
 }

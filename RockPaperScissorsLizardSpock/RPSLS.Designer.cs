@@ -41,12 +41,21 @@
             this.lblPlayerScoreCount = new System.Windows.Forms.Label();
             this.lblComputerScoreCount = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.RPSLS_Game = new System.Windows.Forms.TabPage();
+            this.Game_Options = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numMaxScore = new System.Windows.Forms.NumericUpDown();
+            this.tabControl1.SuspendLayout();
+            this.RPSLS_Game.SuspendLayout();
+            this.Game_Options.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaxScore)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRock
             // 
             this.btnRock.BackColor = System.Drawing.Color.White;
-            this.btnRock.Location = new System.Drawing.Point(316, 91);
+            this.btnRock.Location = new System.Drawing.Point(297, 80);
             this.btnRock.Name = "btnRock";
             this.btnRock.Size = new System.Drawing.Size(75, 23);
             this.btnRock.TabIndex = 0;
@@ -56,7 +65,7 @@
             // 
             // btnPaper
             // 
-            this.btnPaper.Location = new System.Drawing.Point(316, 120);
+            this.btnPaper.Location = new System.Drawing.Point(297, 109);
             this.btnPaper.Name = "btnPaper";
             this.btnPaper.Size = new System.Drawing.Size(75, 23);
             this.btnPaper.TabIndex = 1;
@@ -66,7 +75,7 @@
             // 
             // btnScissors
             // 
-            this.btnScissors.Location = new System.Drawing.Point(316, 149);
+            this.btnScissors.Location = new System.Drawing.Point(297, 138);
             this.btnScissors.Name = "btnScissors";
             this.btnScissors.Size = new System.Drawing.Size(75, 23);
             this.btnScissors.TabIndex = 2;
@@ -76,7 +85,7 @@
             // 
             // btnLizard
             // 
-            this.btnLizard.Location = new System.Drawing.Point(316, 178);
+            this.btnLizard.Location = new System.Drawing.Point(297, 167);
             this.btnLizard.Name = "btnLizard";
             this.btnLizard.Size = new System.Drawing.Size(75, 23);
             this.btnLizard.TabIndex = 3;
@@ -86,7 +95,7 @@
             // 
             // btnSpock
             // 
-            this.btnSpock.Location = new System.Drawing.Point(316, 207);
+            this.btnSpock.Location = new System.Drawing.Point(297, 196);
             this.btnSpock.Name = "btnSpock";
             this.btnSpock.Size = new System.Drawing.Size(75, 23);
             this.btnSpock.TabIndex = 4;
@@ -98,7 +107,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Snap ITC", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(114, -1);
+            this.label1.Location = new System.Drawing.Point(98, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(523, 31);
             this.label1.TabIndex = 5;
@@ -111,10 +120,10 @@
             // lblWin
             // 
             this.lblWin.AutoSize = true;
-            this.lblWin.Font = new System.Drawing.Font("Elephant", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblWin.Location = new System.Drawing.Point(73, 310);
+            this.lblWin.Font = new System.Drawing.Font("Impact", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblWin.Location = new System.Drawing.Point(116, 273);
             this.lblWin.Name = "lblWin";
-            this.lblWin.Size = new System.Drawing.Size(598, 47);
+            this.lblWin.Size = new System.Drawing.Size(457, 45);
             this.lblWin.TabIndex = 6;
             this.lblWin.Text = "Rock Crushes Lizard You Win!";
             this.lblWin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,27 +132,30 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(505, 88);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(476, 109);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.Size = new System.Drawing.Size(108, 21);
             this.label2.TabIndex = 7;
             this.label2.Text = "Player Score:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(480, 120);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(444, 142);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 15);
+            this.label3.Size = new System.Drawing.Size(140, 21);
             this.label3.TabIndex = 8;
             this.label3.Text = "Computer  Score:";
             // 
             // lblPlayerScoreCount
             // 
             this.lblPlayerScoreCount.AutoSize = true;
-            this.lblPlayerScoreCount.Location = new System.Drawing.Point(585, 88);
+            this.lblPlayerScoreCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayerScoreCount.Location = new System.Drawing.Point(590, 109);
             this.lblPlayerScoreCount.Name = "lblPlayerScoreCount";
-            this.lblPlayerScoreCount.Size = new System.Drawing.Size(13, 15);
+            this.lblPlayerScoreCount.Size = new System.Drawing.Size(19, 21);
             this.lblPlayerScoreCount.TabIndex = 9;
             this.lblPlayerScoreCount.Text = "0";
             this.lblPlayerScoreCount.Visible = false;
@@ -151,9 +163,10 @@
             // lblComputerScoreCount
             // 
             this.lblComputerScoreCount.AutoSize = true;
-            this.lblComputerScoreCount.Location = new System.Drawing.Point(585, 120);
+            this.lblComputerScoreCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblComputerScoreCount.Location = new System.Drawing.Point(590, 142);
             this.lblComputerScoreCount.Name = "lblComputerScoreCount";
-            this.lblComputerScoreCount.Size = new System.Drawing.Size(13, 15);
+            this.lblComputerScoreCount.Size = new System.Drawing.Size(19, 21);
             this.lblComputerScoreCount.TabIndex = 10;
             this.lblComputerScoreCount.Text = "0";
             this.lblComputerScoreCount.Visible = false;
@@ -161,7 +174,7 @@
             // btnReset
             // 
             this.btnReset.BackColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(21, 43);
+            this.btnReset.Location = new System.Drawing.Point(8, 40);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 11;
@@ -169,30 +182,100 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.RPSLS_Game);
+            this.tabControl1.Controls.Add(this.Game_Options);
+            this.tabControl1.Location = new System.Drawing.Point(0, 1);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(746, 428);
+            this.tabControl1.TabIndex = 12;
+            // 
+            // RPSLS_Game
+            // 
+            this.RPSLS_Game.BackColor = System.Drawing.Color.SteelBlue;
+            this.RPSLS_Game.Controls.Add(this.label1);
+            this.RPSLS_Game.Controls.Add(this.btnReset);
+            this.RPSLS_Game.Controls.Add(this.btnRock);
+            this.RPSLS_Game.Controls.Add(this.lblComputerScoreCount);
+            this.RPSLS_Game.Controls.Add(this.btnPaper);
+            this.RPSLS_Game.Controls.Add(this.lblPlayerScoreCount);
+            this.RPSLS_Game.Controls.Add(this.btnScissors);
+            this.RPSLS_Game.Controls.Add(this.label3);
+            this.RPSLS_Game.Controls.Add(this.btnLizard);
+            this.RPSLS_Game.Controls.Add(this.label2);
+            this.RPSLS_Game.Controls.Add(this.btnSpock);
+            this.RPSLS_Game.Controls.Add(this.lblWin);
+            this.RPSLS_Game.Location = new System.Drawing.Point(4, 24);
+            this.RPSLS_Game.Name = "RPSLS_Game";
+            this.RPSLS_Game.Padding = new System.Windows.Forms.Padding(3);
+            this.RPSLS_Game.Size = new System.Drawing.Size(738, 400);
+            this.RPSLS_Game.TabIndex = 0;
+            this.RPSLS_Game.Text = "RPSLS Game";
+            // 
+            // Game_Options
+            // 
+            this.Game_Options.BackColor = System.Drawing.Color.SteelBlue;
+            this.Game_Options.Controls.Add(this.numMaxScore);
+            this.Game_Options.Controls.Add(this.label4);
+            this.Game_Options.Location = new System.Drawing.Point(4, 24);
+            this.Game_Options.Name = "Game_Options";
+            this.Game_Options.Padding = new System.Windows.Forms.Padding(3);
+            this.Game_Options.Size = new System.Drawing.Size(738, 400);
+            this.Game_Options.TabIndex = 1;
+            this.Game_Options.Text = "Options";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(21, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Max Score";
+            // 
+            // numMaxScore
+            // 
+            this.numMaxScore.Location = new System.Drawing.Point(116, 25);
+            this.numMaxScore.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.numMaxScore.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numMaxScore.Name = "numMaxScore";
+            this.numMaxScore.Size = new System.Drawing.Size(120, 23);
+            this.numMaxScore.TabIndex = 1;
+            this.numMaxScore.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
             // RPSLS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(752, 450);
-            this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.lblComputerScoreCount);
-            this.Controls.Add(this.lblPlayerScoreCount);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblWin);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSpock);
-            this.Controls.Add(this.btnLizard);
-            this.Controls.Add(this.btnScissors);
-            this.Controls.Add(this.btnPaper);
-            this.Controls.Add(this.btnRock);
+            this.ClientSize = new System.Drawing.Size(746, 429);
+            this.Controls.Add(this.tabControl1);
             this.DoubleBuffered = true;
             this.Name = "RPSLS";
             this.Text = "RPSLS";
+            this.tabControl1.ResumeLayout(false);
+            this.RPSLS_Game.ResumeLayout(false);
+            this.RPSLS_Game.PerformLayout();
+            this.Game_Options.ResumeLayout(false);
+            this.Game_Options.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaxScore)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -211,5 +294,10 @@
         private Label lblPlayerScoreCount;
         private Label lblComputerScoreCount;
         private Button btnReset;
+        private TabControl tabControl1;
+        private TabPage RPSLS_Game;
+        private TabPage Game_Options;
+        private NumericUpDown numMaxScore;
+        private Label label4;
     }
 }

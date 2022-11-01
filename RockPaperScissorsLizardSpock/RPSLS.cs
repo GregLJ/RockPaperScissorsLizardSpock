@@ -5,9 +5,7 @@ namespace RockPaperScissorsLizardSpock
 {
     public partial class RPSLS : Form
     {
-        Random computer = new Random();
-        int playerScore = 0;
-        int computerScore = 0;
+        
        
         public RPSLS()
         {
@@ -47,25 +45,43 @@ namespace RockPaperScissorsLizardSpock
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            lblWin.Visible = false ;
+            GameReset();
+        }
+
+        private void GameReset()
+        {
+            lblWin.Visible = false;
             playerScore = 0;
             computerScore = 0;
             lblPlayerScoreCount.ResetText();
             lblComputerScoreCount.ResetText();
         }
 
-        //private void ScoreKeeping()
-        //{
-        //    var lblComputerScoreCount++;
-        //}
-        
+        Random computer = new Random();
+        int playerScore = 0;
+        int computerScore = 0;
+
+        public void ScoreKeeping()
+        {
+            if (computerScore == numMaxScore.Value)
+            {
+                MessageBox.Show($"Computer Wins! Better luck next time! Your Score: {playerScore} Computer Score: {computerScore}");
+                GameReset();
+            }
+
+            else if (playerScore == numMaxScore.Value)
+            {
+                MessageBox.Show($"You Win! Your Score: {playerScore} Computer Score: {computerScore}");
+                GameReset();
+            }
+        }
         public void WinConditions(HandSign handSign)
         {
             HandSign computerChoice = (HandSign)computer.Next(0, 5);
             lblWin.Visible = false;
             lblPlayerScoreCount.Visible = true;
             lblComputerScoreCount.Visible = true;
-
+            
 
             if (handSign == HandSign.Rock)
             {
@@ -103,8 +119,7 @@ namespace RockPaperScissorsLizardSpock
                     default:
                         break;
                 }
-                lblComputerScoreCount.Text = computerScore.ToString();
-                lblPlayerScoreCount.Text = playerScore.ToString();
+                DisplayWinLoseMessage();
             }
 
             if (handSign == HandSign.Paper)
@@ -141,8 +156,7 @@ namespace RockPaperScissorsLizardSpock
                         lblWin.Visible = true;
                         break;
                 }
-                lblComputerScoreCount.Text = computerScore.ToString();
-                lblPlayerScoreCount.Text = playerScore.ToString();
+                DisplayWinLoseMessage();
             }
 
             if (handSign == HandSign.Scissors)
@@ -181,8 +195,7 @@ namespace RockPaperScissorsLizardSpock
                     default:
                         break;
                 }
-                lblComputerScoreCount.Text = computerScore.ToString();
-                lblPlayerScoreCount.Text = playerScore.ToString();
+                DisplayWinLoseMessage();
             }
 
             if (handSign == HandSign.Lizard)
@@ -219,8 +232,7 @@ namespace RockPaperScissorsLizardSpock
                         lblWin.Visible = true;
                         break;
                 }
-                lblComputerScoreCount.Text = computerScore.ToString();
-                lblPlayerScoreCount.Text = playerScore.ToString();
+                DisplayWinLoseMessage();
             }
 
             if (handSign == HandSign.Spock)
@@ -257,9 +269,15 @@ namespace RockPaperScissorsLizardSpock
                         lblWin.Visible = true;
                         break;
                 }
-                lblComputerScoreCount.Text = computerScore.ToString();
-                lblPlayerScoreCount.Text = playerScore.ToString();
+                DisplayWinLoseMessage();
             }
+            ScoreKeeping();
+        }
+
+        private void DisplayWinLoseMessage()
+        {
+            lblComputerScoreCount.Text = computerScore.ToString();
+            lblPlayerScoreCount.Text = playerScore.ToString();
         }
     }
 }

@@ -1,12 +1,60 @@
 using Microsoft.VisualBasic.Devices;
 using System.Media;
+using System.Windows.Forms;
 
 namespace RockPaperScissorsLizardSpock
 {
     public partial class RPSLS : Form
     {
-        
-       
+        private readonly Dictionary<HandSign, Dictionary<HandSign, string>> results = new Dictionary<HandSign, Dictionary<HandSign, string>>
+        {
+            {
+                HandSign.Rock, new Dictionary<HandSign, string>
+                {
+                    { HandSign.Paper, "Paper covers Rock, You Lose!" },
+                    { HandSign.Scissors, "Rock crushes Scissors, You Win!" },
+                    { HandSign.Lizard, "Rock crushes Lizard, You Win!" },
+                    { HandSign.Spock, "Spock vaporizes Rock, You Lose!" }
+                }
+            },
+            {
+                HandSign.Paper, new Dictionary<HandSign, string>
+                {
+                    { HandSign.Rock, "Paper covers Rock, You Win!" },
+                    { HandSign.Scissors, "Scissors cuts Paper, You Lose!" },
+                    { HandSign.Lizard, "Lizard eats Paper, You Lose!" },
+                    { HandSign.Spock, "Paper disproves Spock, You Win!" }
+                }
+            },
+            {
+                HandSign.Scissors, new Dictionary<HandSign, string>
+                {
+                    { HandSign.Paper, "Scissors cuts Paper, You Win!" },
+                    { HandSign.Rock, "Rock crushes Scissors, You Lose!" },
+                    { HandSign.Lizard, "Scissors decapitates Lizard, You Win!" },
+                    { HandSign.Spock, "Spock smashes Scissors, You Lose!" }
+                }
+            },
+            {
+                HandSign.Lizard, new Dictionary<HandSign, string>
+                {
+                    { HandSign.Spock, "Lizard poisons Spock, You Win!" },
+                    { HandSign.Paper, "Lizard eats Paper, You Win!" },
+                    { HandSign.Scissors, "Scissors decapitates Lizard, You Lose!" },
+                    { HandSign.Rock, "Rock crushes Lizard, You Lose!" }
+                }
+            },
+            {
+                HandSign.Spock, new Dictionary<HandSign, string>
+                {
+                    { HandSign.Scissors, "Spock smashes Scissors, You Win!"},
+                    { HandSign.Rock, "Spock vaporizes Rock, You Win!"},
+                    { HandSign.Lizard, "Lizard poisons Spock, You Lose!"},
+                    { HandSign.Paper, "Paper disproves Spock, You Lose!"}
+                }
+            }
+        };
+
         public RPSLS()
         {
             InitializeComponent();
@@ -15,31 +63,31 @@ namespace RockPaperScissorsLizardSpock
 
         protected void btnRock_Click(object sender, EventArgs e)
         {
-            
+
             WinConditions(HandSign.Rock);
         }
 
         private void btnPaper_Click(object sender, EventArgs e)
         {
-            
+
             WinConditions(HandSign.Paper);
         }
 
         private void btnScissors_Click(object sender, EventArgs e)
         {
-            
+
             WinConditions(HandSign.Scissors);
         }
 
         private void btnLizard_Click(object sender, EventArgs e)
         {
-           
+
             WinConditions(HandSign.Lizard);
         }
 
         private void btnSpock_Click(object sender, EventArgs e)
         {
-            
+
             WinConditions(HandSign.Spock);
         }
 
@@ -57,227 +105,67 @@ namespace RockPaperScissorsLizardSpock
             lblComputerScoreCount.ResetText();
         }
 
-        Random computer = new Random();
+
         int playerScore = 0;
         int computerScore = 0;
 
-        public void ScoreKeeping()
+        private void DisplayWinLoseMessage()
         {
-            if (computerScore == numMaxScore.Value)
+            if (computerScore == Convert.ToInt32(numMaxScore.Value))
             {
-                MessageBox.Show($"Computer Wins! Better luck next time! Your Score: {playerScore} Computer Score: {computerScore}");
+                lblWin.Text = $"Computer Wins! Better luck next time! Your Score: {playerScore} Computer Score: {computerScore}";
+                lblWin.Visible = true;
+                MessageBox.Show(lblWin.Text);
                 GameReset();
             }
-
-            else if (playerScore == numMaxScore.Value)
+            else if (playerScore == Convert.ToInt32(numMaxScore.Value))
             {
-                MessageBox.Show($"You Win! Your Score: {playerScore} Computer Score: {computerScore}");
+                lblWin.Text = $"You Win! Your Score: {playerScore} Computer Score: {computerScore}";
+                lblWin.Visible = true;
+                MessageBox.Show(lblWin.Text);
                 GameReset();
             }
         }
         public void WinConditions(HandSign handSign)
         {
+            Random computer = new Random();
             HandSign computerChoice = (HandSign)computer.Next(0, 5);
             lblWin.Visible = false;
             lblPlayerScoreCount.Visible = true;
             lblComputerScoreCount.Visible = true;
-            
 
-            if (handSign == HandSign.Rock)
+            HandSign playerSign = handSign;
+            HandSign computerSign = computerChoice;
+            string message = "";
+
+            if (playerSign == computerSign)
             {
-                switch (computerChoice)
-                {
-                    //Rock
-                    case HandSign.Rock:
-                        lblWin.Text = "You both chose Rock, Draw.";
-                        lblWin.Visible = true;
-                        break;
-                    //Paper
-                    case HandSign.Paper:
-                        lblWin.Text = "Paper Covers Rock, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Scissor
-                    case HandSign.Scissors:
-                        lblWin.Text = "Rock Crushes Scissors, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Lizard
-                    case HandSign.Lizard:
-                        lblWin.Text = "Rock Crushes Lizard, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Spock
-                    case HandSign.Spock:
-                        lblWin.Text = "Spock Vaporizes Rock, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    default:
-                        break;
-                }
-                DisplayWinLoseMessage();
+                message = "Draw";
+            }
+            else
+            {
+                message = results[playerSign][computerSign];
             }
 
-            if (handSign == HandSign.Paper)
+            lblWin.Text = message;
+            lblWin.Visible = true;
+
+            if (message == "Draw")
             {
-                switch (computerChoice)
-                {
-                    //Rock
-                    case HandSign.Rock:
-                        lblWin.Text = "Paper Covers Rock, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Paper
-                    case HandSign.Paper:
-                        lblWin.Text = "You both Chose Paper, Draw.";
-                        lblWin.Visible = true;
-                        break;
-                    //Scissor
-                    case HandSign.Scissors:
-                        lblWin.Text = "Scissors cut paper, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Lizard
-                    case HandSign.Lizard:
-                        lblWin.Text = "Lizard eats paper, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Spock
-                    case HandSign.Spock:
-                        lblWin.Text = "Paper disproves Spock, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                }
-                DisplayWinLoseMessage();
+                // Do nothing
+            }
+            else if (message.Contains("Win"))
+            {
+                playerScore++;
+                lblPlayerScoreCount.Text = playerScore.ToString();
+            }
+            else if (message.Contains("Lose"))
+            {
+                computerScore++;
+                lblComputerScoreCount.Text = computerScore.ToString();
             }
 
-            if (handSign == HandSign.Scissors)
-            {
-                switch (computerChoice)
-                {
-                    //Rock
-                    case HandSign.Rock:
-                        lblWin.Text = "Rock crushes scissors, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Paper
-                    case HandSign.Paper:
-                        lblWin.Text = "Scissors cut paper, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Scissor
-                    case HandSign.Scissors:
-                        lblWin.Text = "You both chose scissors, Draw.";
-                        lblWin.Visible = true;
-                        break;
-                    //Lizard
-                    case HandSign.Lizard:
-                        lblWin.Text = "Scissors decapitate lizard, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Spock
-                    case HandSign.Spock:
-                        lblWin.Text = "Spock smashes Scissors, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    default:
-                        break;
-                }
-                DisplayWinLoseMessage();
-            }
-
-            if (handSign == HandSign.Lizard)
-            {
-                switch (computerChoice)
-                {
-                    //Rock
-                    case HandSign.Rock:
-                        lblWin.Text = "Rock smashes lizard, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Paper
-                    case HandSign.Paper:
-                        lblWin.Text = "Lizard eats paper, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Scissor
-                    case HandSign.Scissors:
-                        lblWin.Text = "Scissors decapitate lizard, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Lizard
-                    case HandSign.Lizard:
-                        lblWin.Text = "You both chose lizard, Draw.";
-                        lblWin.Visible = true;
-                        break;
-                    //Spock
-                    case HandSign.Spock:
-                        lblWin.Text = "Lizard poisons Spock, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                }
-                DisplayWinLoseMessage();
-            }
-
-            if (handSign == HandSign.Spock)
-            {
-                switch (computerChoice)
-                {
-                    //Rock
-                    case HandSign.Rock:
-                        lblWin.Text = "Spock Vaporizes rock, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Paper
-                    case HandSign.Paper:
-                        lblWin.Text = "Paper disproves Spock, You Lose!";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Scissor
-                    case HandSign.Scissors:
-                        lblWin.Text = "Spock smashes scissors, You Win!";
-                        ++playerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Lizard
-                    case HandSign.Lizard:
-                        lblWin.Text = "Lizard poisons Spock, You Lose";
-                        ++computerScore;
-                        lblWin.Visible = true;
-                        break;
-                    //Spock
-                    case HandSign.Spock:
-                        lblWin.Text = "You both chose Spock, Draw.";
-                        lblWin.Visible = true;
-                        break;
-                }
-                DisplayWinLoseMessage();
-            }
-            ScoreKeeping();
-        }
-
-        private void DisplayWinLoseMessage()
-        {
-            lblComputerScoreCount.Text = computerScore.ToString();
-            lblPlayerScoreCount.Text = playerScore.ToString();
+            DisplayWinLoseMessage();
         }
     }
 }

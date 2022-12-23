@@ -59,5 +59,25 @@ namespace RockPaperScissorsLizardSpock.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RPSLS {
+            get {
+                object obj = ResourceManager.GetObject("RPSLS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_rpsls {
+            get {
+                object obj = ResourceManager.GetObject("rsz_rpsls", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

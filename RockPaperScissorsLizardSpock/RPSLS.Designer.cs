@@ -34,7 +34,6 @@
             this.btnLizard = new System.Windows.Forms.Button();
             this.btnSpock = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.lblWin = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +43,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.RPSLS_Game = new System.Windows.Forms.TabPage();
             this.Game_Options = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
             this.numMaxScore = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.RPSLS_Game.SuspendLayout();
             this.Game_Options.SuspendLayout();
@@ -113,19 +112,16 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Rock, Paper, Scissors, Lizard, Spock";
             // 
-            // printDialog1
-            // 
-            this.printDialog1.UseEXDialog = true;
-            // 
             // lblWin
             // 
-            this.lblWin.AutoSize = true;
+            this.lblWin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWin.Enabled = false;
             this.lblWin.Font = new System.Drawing.Font("Impact", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblWin.Location = new System.Drawing.Point(116, 273);
+            this.lblWin.Location = new System.Drawing.Point(17, 267);
             this.lblWin.Name = "lblWin";
-            this.lblWin.Size = new System.Drawing.Size(457, 45);
+            this.lblWin.Size = new System.Drawing.Size(644, 45);
             this.lblWin.TabIndex = 6;
-            this.lblWin.Text = "Rock Crushes Lizard You Win!";
+            this.lblWin.Text = "Draw";
             this.lblWin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblWin.Visible = false;
             // 
@@ -226,16 +222,6 @@
             this.Game_Options.TabIndex = 1;
             this.Game_Options.Text = "Options";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(21, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 21);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Max Score";
-            // 
             // numMaxScore
             // 
             this.numMaxScore.Location = new System.Drawing.Point(116, 25);
@@ -257,6 +243,16 @@
             0,
             0,
             0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(21, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Max Score";
             // 
             // RPSLS
             // 
@@ -287,7 +283,6 @@
         private Button btnLizard;
         private Button btnSpock;
         private Label label1;
-        private PrintDialog printDialog1;
         private Label lblWin;
         private Label label2;
         private Label label3;
